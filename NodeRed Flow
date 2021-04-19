@@ -1,0 +1,471 @@
+[{"id":"cf8fda83.726438","type":"tab","label":"Temp_holen","disabled":false,"info":""},{"id":"d46f5c6c.78f6e","type":"ui_switch","z":"cf8fda83.726438","name":"Röhre1 EIn/Aus","label":"Röhre 1","tooltip":"","group":"f821ef52.0bac6","order":1,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","x":500,"y":740,"wires":[["2e5937b7.3b1b8"]]},{"id":"e50a0ac.62841f8","type":"ui_gauge","z":"cf8fda83.726438","name":"Terrarium","group":"f821ef52.0bac6","order":4,"width":0,"height":0,"gtype":"gage","title":"Terrarium","label":"°C","format":"{{value}}","min":0,"max":"35","colors":["#00b500","#e6e600","#ca3838"],"seg1":"25","seg2":"30","x":760,"y":1200,"wires":[]},{"id":"132d64f1.60b68b","type":"ui_chart","z":"cf8fda83.726438","name":"TerrariumKurve","group":"f821ef52.0bac6","order":5,"width":0,"height":0,"label":"TerrariumKurve","chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"10","ymax":"30","removeOlder":"24","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":820,"y":1240,"wires":[[],[]]},{"id":"bd525314.5e3fc","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch ON","payload":"true","payloadType":"bool","repeat":"","crontab":"00 10 * * *","once":false,"onceDelay":0.1,"x":200,"y":660,"wires":[["d46f5c6c.78f6e"]]},{"id":"201fbe67.621892","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch OFF","payload":"false","payloadType":"bool","repeat":"","crontab":"30 19 * * *","once":false,"onceDelay":0.1,"x":190,"y":700,"wires":[["d46f5c6c.78f6e"]]},{"id":"ed396564.59a9f8","type":"ui_switch","z":"cf8fda83.726438","name":"Röhre2 EIn/Aus","label":"Röhre 2 ","tooltip":"","group":"f821ef52.0bac6","order":2,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","x":500,"y":840,"wires":[["876c8f4.d62daf"]]},{"id":"38ee105b.058be","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch ON","payload":"true","payloadType":"bool","repeat":"","crontab":"00 11 * * *","once":false,"onceDelay":0.1,"x":200,"y":800,"wires":[["ed396564.59a9f8"]]},{"id":"2b599156.58331e","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch OFF","payload":"false","payloadType":"bool","repeat":"","crontab":"30 18 * * *","once":false,"onceDelay":0.1,"x":210,"y":840,"wires":[["ed396564.59a9f8"]]},{"id":"77bac878.d84638","type":"ui_switch","z":"cf8fda83.726438","name":"Halogenlampe Ein Aus","label":"Halogenlampe","tooltip":"","group":"f821ef52.0bac6","order":3,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","x":500,"y":940,"wires":[["e66145eb.5555f8"]]},{"id":"e6dfc9e7.797d08","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch ON","payload":"true","payloadType":"bool","repeat":"","crontab":"00 10 * * *","once":false,"onceDelay":0.1,"x":200,"y":900,"wires":[["77bac878.d84638"]]},{"id":"e3968ec3.5c3c9","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch OFF","payload":"false","payloadType":"bool","repeat":"","crontab":"00 18 * * *","once":false,"onceDelay":0.1,"x":210,"y":940,"wires":[["77bac878.d84638"]]},{"id":"3792e58f.728e3a","type":"ui_switch","z":"cf8fda83.726438","name":"Wüstenlampe Ein Aus","label":"Wüstenlampe","tooltip":"","group":"f821ef52.0bac6","order":3,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","x":500,"y":1040,"wires":[["fa8d76cc.bcb4e8"]]},{"id":"58e96a6e.94a954","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch ON","payload":"true","payloadType":"bool","repeat":"","crontab":"40 10 * * *","once":false,"onceDelay":0.1,"x":200,"y":1000,"wires":[["3792e58f.728e3a"]]},{"id":"42027e20.5f6a2","type":"inject","z":"cf8fda83.726438","name":"","topic":"Switch OFF","payload":"false","payloadType":"bool","repeat":"","crontab":"30 19 * * *","once":false,"onceDelay":0.1,"x":210,"y":1040,"wires":[["3792e58f.728e3a"]]},{"id":"a06115b4.9651c8","type":"mqtt in","z":"cf8fda83.726438","name":"","topic":"terrarium/temp1","qos":"0","broker":"7fdb59a3.59f708","x":180,"y":1160,"wires":[["132d64f1.60b68b","e50a0ac.62841f8"]]},{"id":"2e5937b7.3b1b8","type":"mqtt out","z":"cf8fda83.726438","name":"","topic":"terrarium/r1","qos":"","retain":"","broker":"7fdb59a3.59f708","x":690,"y":740,"wires":[]},{"id":"876c8f4.d62daf","type":"mqtt out","z":"cf8fda83.726438","name":"","topic":"terrarium/r2","qos":"","retain":"","broker":"7fdb59a3.59f708","x":690,"y":840,"wires":[]},{"id":"e66145eb.5555f8","type":"mqtt out","z":"cf8fda83.726438","name":"","topic":"terrarium/h1","qos":"","retain":"","broker":"7fdb59a3.59f708","x":710,"y":940,"wires":[]},{"id":"fa8d76cc.bcb4e8","type":"mqtt out","z":"cf8fda83.726438","name":"","topic":"terrarium/w1","qos":"","retain":"","broker":"7fdb59a3.59f708","x":710,"y":1040,"wires":[]},{"id":"f821ef52.0bac6","type":"ui_group","z":"","name":"Wohnzimmer","tab":"49bf828f.8a321c","disp":true,"width":"6","collapse":false},{"id":"7fdb59a3.59f708","type":"mqtt-broker","z":"","name":"Raspi","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"49bf828f.8a321c","type":"ui_tab","z":"","name":"Home","icon":"Wohnzitemp","disabled":false,"hidden":false}][
+    {
+        "id": "cf8fda83.726438",
+        "type": "tab",
+        "label": "Temp_holen",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d46f5c6c.78f6e",
+        "type": "ui_switch",
+        "z": "cf8fda83.726438",
+        "name": "Röhre1 EIn/Aus",
+        "label": "Röhre 1",
+        "tooltip": "",
+        "group": "f821ef52.0bac6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 500,
+        "y": 740,
+        "wires": [
+            [
+                "2e5937b7.3b1b8"
+            ]
+        ]
+    },
+    {
+        "id": "e50a0ac.62841f8",
+        "type": "ui_gauge",
+        "z": "cf8fda83.726438",
+        "name": "Terrarium",
+        "group": "f821ef52.0bac6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Terrarium",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "35",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "30",
+        "x": 760,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "132d64f1.60b68b",
+        "type": "ui_chart",
+        "z": "cf8fda83.726438",
+        "name": "TerrariumKurve",
+        "group": "f821ef52.0bac6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "TerrariumKurve",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "30",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 820,
+        "y": 1240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bd525314.5e3fc",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch ON",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "00 10 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 660,
+        "wires": [
+            [
+                "d46f5c6c.78f6e"
+            ]
+        ]
+    },
+    {
+        "id": "201fbe67.621892",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch OFF",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "30 19 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 700,
+        "wires": [
+            [
+                "d46f5c6c.78f6e"
+            ]
+        ]
+    },
+    {
+        "id": "ed396564.59a9f8",
+        "type": "ui_switch",
+        "z": "cf8fda83.726438",
+        "name": "Röhre2 EIn/Aus",
+        "label": "Röhre 2 ",
+        "tooltip": "",
+        "group": "f821ef52.0bac6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 500,
+        "y": 840,
+        "wires": [
+            [
+                "876c8f4.d62daf"
+            ]
+        ]
+    },
+    {
+        "id": "38ee105b.058be",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch ON",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "00 11 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 800,
+        "wires": [
+            [
+                "ed396564.59a9f8"
+            ]
+        ]
+    },
+    {
+        "id": "2b599156.58331e",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch OFF",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "30 18 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 840,
+        "wires": [
+            [
+                "ed396564.59a9f8"
+            ]
+        ]
+    },
+    {
+        "id": "77bac878.d84638",
+        "type": "ui_switch",
+        "z": "cf8fda83.726438",
+        "name": "Halogenlampe Ein Aus",
+        "label": "Halogenlampe",
+        "tooltip": "",
+        "group": "f821ef52.0bac6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 500,
+        "y": 940,
+        "wires": [
+            [
+                "e66145eb.5555f8"
+            ]
+        ]
+    },
+    {
+        "id": "e6dfc9e7.797d08",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch ON",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "00 10 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 900,
+        "wires": [
+            [
+                "77bac878.d84638"
+            ]
+        ]
+    },
+    {
+        "id": "e3968ec3.5c3c9",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch OFF",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "00 18 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 940,
+        "wires": [
+            [
+                "77bac878.d84638"
+            ]
+        ]
+    },
+    {
+        "id": "3792e58f.728e3a",
+        "type": "ui_switch",
+        "z": "cf8fda83.726438",
+        "name": "Wüstenlampe Ein Aus",
+        "label": "Wüstenlampe",
+        "tooltip": "",
+        "group": "f821ef52.0bac6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 500,
+        "y": 1040,
+        "wires": [
+            [
+                "fa8d76cc.bcb4e8"
+            ]
+        ]
+    },
+    {
+        "id": "58e96a6e.94a954",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch ON",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "40 10 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 1000,
+        "wires": [
+            [
+                "3792e58f.728e3a"
+            ]
+        ]
+    },
+    {
+        "id": "42027e20.5f6a2",
+        "type": "inject",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "Switch OFF",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "30 19 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 1040,
+        "wires": [
+            [
+                "3792e58f.728e3a"
+            ]
+        ]
+    },
+    {
+        "id": "a06115b4.9651c8",
+        "type": "mqtt in",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "terrarium/temp1",
+        "qos": "0",
+        "broker": "7fdb59a3.59f708",
+        "x": 180,
+        "y": 1160,
+        "wires": [
+            [
+                "132d64f1.60b68b",
+                "e50a0ac.62841f8"
+            ]
+        ]
+    },
+    {
+        "id": "2e5937b7.3b1b8",
+        "type": "mqtt out",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "terrarium/r1",
+        "qos": "",
+        "retain": "",
+        "broker": "7fdb59a3.59f708",
+        "x": 690,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "876c8f4.d62daf",
+        "type": "mqtt out",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "terrarium/r2",
+        "qos": "",
+        "retain": "",
+        "broker": "7fdb59a3.59f708",
+        "x": 690,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "e66145eb.5555f8",
+        "type": "mqtt out",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "terrarium/h1",
+        "qos": "",
+        "retain": "",
+        "broker": "7fdb59a3.59f708",
+        "x": 710,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "fa8d76cc.bcb4e8",
+        "type": "mqtt out",
+        "z": "cf8fda83.726438",
+        "name": "",
+        "topic": "terrarium/w1",
+        "qos": "",
+        "retain": "",
+        "broker": "7fdb59a3.59f708",
+        "x": 710,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f821ef52.0bac6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Wohnzimmer",
+        "tab": "49bf828f.8a321c",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7fdb59a3.59f708",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Raspi",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "49bf828f.8a321c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "Wohnzitemp",
+        "disabled": false,
+        "hidden": false
+    }
+]
